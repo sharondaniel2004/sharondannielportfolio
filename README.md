@@ -5,7 +5,7 @@ Crafted with modern design principles and responsiveness, this site showcases my
 
 ## 🔥 Live Preview
 
-👉 [Visit Portfolio Website]([https://your-site-name.netlify.app](https://devbysharon.netlify.app/))
+👉 [Visit Portfolio Website]([https://devbysharon.netlify.app/])
 
 ---
 

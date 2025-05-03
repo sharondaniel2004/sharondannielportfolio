@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sharon Danniel | Full Stack Developer</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- AOS Animation CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      button {
+        background: #f3b54a;
+        color: #555;
+        font-weight: 600;
+        border: 2px solid #c3bfbf;
+        padding: 0.75rem 2rem;
+        transition: background 0.3s, color 0.3s;
+        text-align: center;
+        border-radius: 5%;
+      }
+      footer {
+        background: #f3b54a;
+        color: #555;
+        font-weight: 600;
+        border: 2px solid #c3bfbf;
+        padding: 0.75rem 2rem;
+        transition: background 0.3s, color 0.3s;
+        text-align: center;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #ffffff;
+        color: #333;
+      }
+      nav {
+        background: #fff;
+      }
+      .navbar-brand {
+        font-weight: 600;
+        font-style: italic;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+      .nav-link {
+        font-weight: 400;
+        color: #555 !important;
+        transition: color 0.3s;
+      }
+      .nav-link:hover {
+        color: #f3b54a !important;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, #f3b54a, #fffde7);
+        padding: 120px 0;
+        position: relative;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background: #fff;
+        clip-path: polygon(0 0, 100% 100%, 0 100%);
+      }
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 600;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+      }
+      .btn-resume {
+        background: #fff;
+        color: #f3b54a;
+        font-weight: 600;
+        border: 2px solid #f3b54a;
+        padding: 0.75rem 2rem;
+        transition: background 0.3s, color 0.3s;
+      }
+      .btn-resume:hover {
+        background: #f3b54a;
+        color: #fff;
+      }
+
+      /* Services Section */
+      #services {
+        padding: 80px 0;
+      }
+      .service-card {
+        border: none;
+        border-radius: 12px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        background: #fff;
+        padding: 30px;
+        text-align: center;
+      }
+      .service-card i {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        color: #f3b54a;
+      }
+      .service-card h5 {
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Skills Section */
+      #skills {
+        background: #fff;
+        padding: 80px 0;
+      }
+      .skill {
+        margin-bottom: 30px;
+      }
+      .skill-title {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+      .progress-bar {
+        background-color: #f3b54a !important;
+      }
+
+      /* Section Titles */
+      .section-title {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 600;
+        color: #f3b54a;
+        margin-bottom: 50px;
+        position: relative;
+      }
+      .section-title::after {
+        content: "";
+        width: 60px;
+        height: 4px;
+        background: #f3b54a;
+        position: absolute;
+        left: 50%;
+        bottom: -15px;
+        transform: translateX(-50%);
+      }
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #f3b54a;
+        margin: 60px 0 40px;
+        position: relative;
+      }
+      .section-title::after {
+        content: "";
+        width: 80px;
+        height: 4px;
+        background: #f3b54a;
+        position: absolute;
+        left: 50%;
+        bottom: -15px;
+        transform: translateX(-50%);
+      }
+
+      /* Timeline Styles */
+      .timeline {
+        position: relative;
+        padding: 2rem 0;
+        list-style: none;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 100%;
+        background: #f3b54a;
+      }
+      .timeline li {
+        position: relative;
+        width: 50%;
+        padding: 1rem 2rem;
+      }
+      .timeline li:nth-child(odd) {
+        left: 0;
+        text-align: right;
+      }
+      .timeline li:nth-child(even) {
+        left: 50%;
+      }
+      .timeline li::before {
+        content: "";
+        position: absolute;
+        top: 1.5rem;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #fff;
+        border: 4px solid #f3b54a;
+      }
+      .timeline li:nth-child(odd)::before {
+        right: -10px;
+      }
+      .timeline li:nth-child(even)::before {
+        left: -10px;
+      }
+
+      .timeline-content {
+        background: #f9f9f9;
+        padding: 1.5rem;
+        border-radius: 8px;
+        display: inline-block;
+      }
+      .carousel-inner img {
+        height: 550px;
+        width: 600px;
+        object-fit: cover;
+        
+      }
+    
+.carousel-item {
+  transition: transform 0.3s ease-in-out !important; 
+}
+
+.carousel-inner {
+  transition: transform 0.3s ease-in-out !important; 
+}
+
+      .keep-touch-btn:hover {
+    background-color: #f3b54a !important;
+    color: #fff !important;
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      background: #f3b54a;
+        color: #555;
+        font-weight: 600;
+        border: 2px solid #c3bfbf;
+        padding: 0.75rem 2rem;
+        transition: background 0.3s, color 0.3s;
+        text-align: center;
+        border-radius: 5%;
+  }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg shadow-sm fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Sharon Danniel</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMain"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tngpc-project">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#process">Process</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact me</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero text-center" data-aos="fade-down">
+      <div class="container">
+        <img
+          src="img.jpg"
+          alt="Sharon"
+          class="rounded-circle mb-4 shadow"
+          width="180"
+        />
+        <h1>Hi, I'm Sharon Danniel</h1>
+        <p class="lead">
+          Crafting elegant enterprise solutions with Java & Flutter
+        </p>
+        <a href="resume.pdf" class="btn btn-resume mt-3">Download Resume</a>
+      </div>
+    </section>
+
+    <!-- Clean Carousel Section -->
+    <section class="container my-5 border-4">
+      <div
+        id="portfolioCarousel"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#portfolioCarousel"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#portfolioCarousel"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#portfolioCarousel"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+
+        <!-- Carousel Items -->
+        <div class="carousel-inner rounded shadow">
+          <div class="carousel-item active">
+            <img
+              src="https://sdmntpreastus2.oaiusercontent.com/files/00000000-43b4-61f6-8d15-b0f1ce2f3647/raw?se=2025-05-03T06%3A46%3A19Z&sp=r&sv=2024-08-04&sr=b&scid=28c6592b-f512-5d89-8a30-49bae6c565a3&skoid=a47cd303-16a2-427e-8efb-2ce406116005&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-02T20%3A40%3A10Z&ske=2025-05-03T20%3A40%3A10Z&sks=b&skv=2024-08-04&sig=6YQj6uxlu7Wx%2BlK8dvmGwpa2zQiOgJO%2BhsuGxiGU8AI%3D"
+              class="d-block w-100"
+              alt="Coding Workflow"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Coding Workflow</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://sdmntprwestus2.oaiusercontent.com/files/00000000-0604-61f8-bda2-ec60b70d1e42/raw?se=2025-05-03T07%3A07%3A56Z&sp=r&sv=2024-08-04&sr=b&scid=e517cb6c-43e3-58b8-8d4e-72987542f72c&skoid=b53ae837-f585-4db7-b46f-2d0322fce5a9&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-02T20%3A39%3A42Z&ske=2025-05-03T20%3A39%3A42Z&sks=b&skv=2024-08-04&sig=ANFcMYIzkfXd/XsRAa6It2Wb7rx4qIHQKvQJ4RMP59I%3D"
+              class="d-block w-100"
+              alt="UI Design"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>My skills</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://videos.openai.com/vg-assets/assets%2Ftask_01jtacsq21f8atkd51jgms13nz%2F1746253223_img_0.webp?st=2025-05-03T04%3A55%3A55Z&se=2025-05-09T05%3A55%3A55Z&sks=b&skt=2025-05-03T04%3A55%3A55Z&ske=2025-05-09T05%3A55%3A55Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=8ebb0df1-a278-4e2e-9c20-f2d373479b3a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=OVx50tyxjxmUqhYlESikzydtw96LC5CfM%2FnRpBS2rGw%3D&az=oaivgprodscus"
+              class="d-block w-100"
+              alt="Cloud Deployment"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>My projects</h5>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#portfolioCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#portfolioCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="container" data-aos="fade-up">
+      <h2 class="section-title">My Services</h2>
+      <div class="row g-4">
+        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+          <div class="service-card">
+            <i class="fas fa-code"></i>
+            <h5>Backend Development</h5>
+            <p>Robust REST APIs with Java & Spring Boot</p>
+          </div>
+        </div>
+        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+          <div class="service-card">
+            <i class="fas fa-mobile-alt"></i>
+            <h5>Flutter Apps</h5>
+            <p>Cross-platform mobile development</p>
+          </div>
+        </div>
+        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+          <div class="service-card">
+            <i class="fas fa-database"></i>
+            <h5>Database Design</h5>
+            <p>MongoDB & Firebase integration</p>
+          </div>
+        </div>
+        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="400">
+          <div class="service-card">
+            <i class="fas fa-paint-brush"></i>
+            <h5>UI/UX Design</h5>
+            <p>Modern, user-friendly interfaces</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">My Skills</h2>
+        <div class="row">
+          <div class="col-md-6 skill" data-aos="fade-right">
+            <div class="skill-title"><span>Java</span><span>90%</span></div>
+            <div class="progress">
+              <div
+                class="progress-bar"
+                role="progressbar"
+                style="width: 90%"
+                aria-valuenow="90"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
+          <div class="col-md-6 skill" data-aos="fade-left">
+            <div class="skill-title"><span>Flutter</span><span>85%</span></div>
+            <div class="progress">
+              <div
+                class="progress-bar"
+                role="progressbar"
+                style="width: 85%"
+              ></div>
+            </div>
+          </div>
+          <div
+            class="col-md-6 skill"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
+            <div class="skill-title"><span>MongoDB</span><span>80%</span></div>
+            <div class="progress">
+              <div
+                class="progress-bar"
+                role="progressbar"
+                style="width: 80%"
+              ></div>
+            </div>
+          </div>
+          <div class="col-md-6 skill" data-aos="fade-left" data-aos-delay="200">
+            <div class="skill-title"><span>UI/UX</span><span>75%</span></div>
+            <div class="progress">
+              <div
+                class="progress-bar"
+                role="progressbar"
+                style="width: 75%"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+   <!-- TNGPC Project Section -->
+<section id="tngpc-project" class="container py-5" data-aos="fade-up">
+  <h2 class="section-title text-center mb-5">TNGPC – Police Canteen Digitalization</h2>
+  <div class="row align-items-center">
+    <div class="col-md-6">
+     <center> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpOj_w3S6BcfQLOxpWl0UUaL4K_7C_aKULWm5FfQz6aRCf4q6UqSID0GfyDe2yNglHWKw&usqp=CAU" alt="TNGPC App Mockup" class="img-fluid rounded shadow"></center>
+    </div>
+    <br>
+    <div class="col-md-6">
+      <h4 class="text-primary">Overview</h4>
+      <p>
+        TNGPC (Tamil Nadu Government Police Canteen) is a digital solution built to modernize the operations of police canteens across Tamil Nadu. This real-time application simplifies product management, billing, and user access, transforming manual processes into an efficient digital platform.
+      </p>
+      <h5 class="mt-4">Tech Stack</h5>
+      <ul class="list-unstyled">
+        <li><i class="fas fa-check-circle text-success me-2"></i><strong>Frontend:</strong> Flutter</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i><strong>Backend:</strong> Firebase / Java (optional upgrade)</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i><strong>Database:</strong> Mongodb(Cloud)</li>
+      </ul>
+      <h5 class="mt-4">Key Features</h5>
+      <ul class="list-unstyled">
+        <li><i class="fas fa-bolt text-warning me-2"></i>Admin and User Login System</li>
+        <li><i class="fas fa-box text-primary me-2"></i>Inventory and Product Management</li>
+        <li><i class="fas fa-receipt text-info me-2"></i>Instant Billing System</li>
+        <li><i class="fas fa-chart-line text-success me-2"></i>Real-time Dashboard Analytics</li>
+      </ul>
+      <a href="https://github.com/sharondaniel2004/tngpc" class="btn btn-dark mt-3" target="_blank">
+        <i class="fab fa-github me-2"></i> View Project on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+    <!-- process Section -->
+    <section id="process" data-aos="fade-up">
+      <h2 class="section-title">My Workflow</h2>
+      <ul class="timeline">
+        <li data-aos="fade-right" data-aos-delay="100">
+          <div class="timeline-content">
+            <h5>1. Discovery & Planning</h5>
+            <p>
+              Gather requirements, define scope, and set milestones to ensure
+              clarity and alignment.
+            </p>
+          </div>
+        </li>
+        <li data-aos="fade-left" data-aos-delay="200">
+          <div class="timeline-content">
+            <h5>2. Design & Prototyping</h5>
+            <p>
+              Create wireframes, UI/UX prototypes, and iterate based on feedback
+              to achieve the desired look and feel.
+            </p>
+          </div>
+        </li>
+        <li data-aos="fade-right" data-aos-delay="300">
+          <div class="timeline-content">
+            <h5>3. Development</h5>
+            <p>
+              Implement features with clean, efficient code using Java, Flutter,
+              and modern web technologies.
+            </p>
+          </div>
+        </li>
+        <li data-aos="fade-left" data-aos-delay="400">
+          <div class="timeline-content">
+            <h5>4. Testing & QA</h5>
+            <p>
+              Perform unit, integration, and user acceptance testing to ensure a
+              bug-free delivery.
+            </p>
+          </div>
+        </li>
+        <li data-aos="fade-right" data-aos-delay="500">
+          <div class="timeline-content">
+            <h5>5. Deployment & Maintenance</h5>
+            <p>
+              Deploy to production, monitor performance, and provide ongoing
+              support & updates.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container" data-aos="fade-up">
+      <h2 class="section-title">Contact Me</h2>
+      <!-- Old form or content goes here -->
+    </section>
+    <section
+      id="contact-details"
+      class="container text-center py-5"
+      data-aos="fade-up"
+    >
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <p>
+            <i class="fas fa-envelope me-2 text-warning"></i
+            ><strong>Email:</strong>
+            <a href="mailto:Sharondanniel24@gmail.com"
+              >Sharondanniel24@gmail.com</a
+            >
+          </p>
+          <p>
+            <i class="fab fa-github me-2 text-dark"></i
+            ><strong>GitHub:</strong>
+            <a href="https://github.com/sharondaniel2004" target="_blank"
+              >github.com/Sharondanniel</a
+            >
+          </p>
+          <p>
+            <i class="fab fa-linkedin me-2 text-primary"></i
+            ><strong>LinkedIn:</strong>
+            <a
+              href="https://www.linkedin.com/in/sharondaniel2004"
+              target="_blank"
+              >linkedin.com/in/sharondanniel</a
+            >
+          </p>
+          <p>
+            <i class="fas fa-phone me-2 text-success"></i
+            ><strong>Phone:</strong>
+            <a href="tel:+918248073438">+91 82480 73438</a>
+          </p>
+        </div>
+      </div>
+    </section>
+   <!-- Keep in Touch Section -->
+<section id="keep-in-touch" class="text-center my-5">
+  <a href="contact.html"
+     class="btn btn-warning btn-lg keep-touch-btn"
+     style="background-color: #f3b54a; border: none; color: #555; transition: all 0.3s ease;">
+    Keep in Touch
+  </a>
+</section>
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 Sharon Danniel | All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap, AOS, and Custom Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true });
+
+      // Smooth scroll for navbar links
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          document
+            .querySelector(link.getAttribute("href"))
+            .scrollIntoView({ behavior: "smooth" });
+        });
+      });
+    </script>
+  </body>
+</html>

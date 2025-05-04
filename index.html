@@ -253,6 +253,23 @@
 .carousel-inner {
   transition: transform 0.3s ease-in-out !important; 
 }
+.carousel-item img {
+  object-fit: cover;
+  height: 400px;
+}
+
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 250px;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-item img {
+    height: 200px;
+  }
+}
+
 
       .keep-touch-btn:hover {
     background-color: #f3b54a !important;
@@ -359,8 +376,7 @@
         <div class="carousel-inner rounded shadow">
           <div class="carousel-item active">
             <img src="img-1.png"
-              class="d-block w-100"
-              alt="Coding Workflow"
+              alt="Coding Workflow" class="d-block w-100 img-fluid object-fit-cover" style="height: 400px;" 
             />
             <div class="carousel-caption d-none d-md-block">
               <h5>Coding Workflow</h5>
@@ -369,7 +385,7 @@
           <div class="carousel-item">
             <img
               src="img 2.png"
-              class="d-block w-100"
+              class="d-block w-100 img-fluid object-fit-cover" style="height: 400px;" 
               alt="UI Design"
             />
             <div class="carousel-caption d-none d-md-block">
@@ -379,7 +395,7 @@
           <div class="carousel-item">
             <img
               src="img-3.png"
-              class="d-block w-100"
+             class="d-block w-100 img-fluid object-fit-cover" style="height: 400px;" alt="..."
               alt="Cloud Deployment"
             />
             <div class="carousel-caption d-none d-md-block">
@@ -633,7 +649,7 @@
      style="background-color: #f3b54a; border: none; color: #555; transition: all 0.3s ease;">
     Keep in Touch
   </a>
-</section>
+</section> 
     <footer class="footer">
       <div class="container">
         <p>&copy; 2025 Sharon Danniel | All Rights Reserved</p>
@@ -654,7 +670,7 @@
             .querySelector(link.getAttribute("href"))
             .scrollIntoView({ behavior: "smooth" });
         });
-      });
+      }); 
     </script>
   </body>
 </html>
